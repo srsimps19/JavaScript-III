@@ -73,6 +73,7 @@ Humanoid.prototype.greet = function() {
   * Instances of CharacterStats should have all of the same properties as GameObject.
 */
 
+
 // Test you work by un-commenting these 3 objects and the list of console logs below:
 
 
@@ -126,6 +127,8 @@ Humanoid.prototype.greet = function() {
     language: 'Elvish',
   });
 
+ 
+
   console.log(mage.createdAt); // Today's date
   console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
   console.log(swordsman.healthPoints); // 15
@@ -142,3 +145,53 @@ Humanoid.prototype.greet = function() {
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
+
+  let Hero = function(humanoidAttributes) {
+    Humanoid.call(this, humanoidAttributes);
+    this.good = humanoidAttributes.good;
+  };
+  
+  Hero.prototype = Object.create(Humanoid.prototype);
+  
+  let Villain = function(humanoidAttributes) {
+    Humanoid.call(this, humanoidAttributes);
+    this.bad = humanoidAttributes.bad;
+  };
+  
+  Villain.prototype = Object.create(Humanoid.prototype);
+
+  const hero = new Hero({
+    createdAt: new Date(),
+    dimensions: {
+      length: 3,
+      width: 3,
+      height: 3,
+    },
+    healthPoints: 10,
+    name: 'King George',
+    team: 'The Round Table',
+    weapons: [
+      'Sword',
+      'Dagger',
+    ],
+    language: 'Royal Tongue',
+  });
+
+  const villian = new Villain({
+    createdAt: new Date(),
+    dimensions: {
+      length: 2,
+      width: 3,
+      height: 4,
+    },
+    healthPoints: 15,
+    name: 'The Destroyer of Worlds',
+    team: 'The Exhild',
+    weapons: [
+      'Wand',
+    ],
+    language: [
+      'Royal Tongue',
+      'Common Tongue',
+    ],
+  });
