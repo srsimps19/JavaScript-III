@@ -13,15 +13,10 @@
 
 // code example for Window Binding
 
-let yellHello = function(param) {
-    param.hello = function() {
-        console.log(`HELLO ${this.name}!!!`);
+let yellHello = function() {
+        console.log(this);
     };
-};
 
-const name1 = {
-    name: "BARNEY"
-};
 yellHello();
 
 // yellHello(name1);
