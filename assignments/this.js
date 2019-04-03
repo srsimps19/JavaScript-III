@@ -20,10 +20,12 @@ let yellHello = function(param) {
 };
 
 const name1 = {
-    name: "Barney"
+    name: "BARNEY"
 };
-
 yellHello();
+
+// yellHello(name1);
+// name1.hello();
 
 // Principle 2
 
